@@ -4,6 +4,80 @@
 
 <head>
   <title>Contact Us</title>
+
+<script type="text/javascript">
+
+function validate1()
+{
+
+// objects variables
+var name1 = document.getElementById("FN");
+var name2 = document.getElementById("LN");
+var name3 = document.getElementById("NN");
+var bio1 = document.getElementById("BB");
+var treat1 = document.getElementsByName("RadioButz");
+var flavor1 = document.getElementsByName("Flavor");
+var size1 = document.getElementById("FS");
+var location1 = document.getElementById("LT");
+
+// validation of names id
+document.getElementById("out1").innerHTML = name1.value;
+document.getElementById("out2").innerHTML = name2.value;
+document.getElementById("out3").innerHTML = name3.value;
+document.getElementById("out4").innerHTML = bio1.value;
+document.getElementById("out7").innerHTML = size1.value;
+document.getElementById("out8").innerHTML = location1.value;
+
+//validation of ratio buttons
+if (treat1[0].checked == true)
+{
+  document.getElementById("out5").innerHTML = treat1[0].value;
+}
+if (treat1[1].checked == true)
+{
+  document.getElementById("out5").innerHTML = treat1[1].value;
+}
+if (treat1[2].checked == true)
+{
+  document.getElementById("out5").innerHTML = treat1[2].value;
+}
+else
+{
+  document.getElementById("out5").innerHTML = treat1[3].value;
+}
+
+//validation of checked buttons
+var i = 0;
+var flavorText = "";
+var addComma = 0;
+
+while(i<flavor1.length)
+{
+  if(flavor1[i].checked == true)
+  {
+    if (addComma == 1)
+    {
+      flavorText = flavorText + ", ";
+    }
+  flavorText = flavorText + flavor1[i].value;
+  addComma = 1;
+  }
+  i = i + 1;
+}
+document.getElementById("out6").innerHTML = flavorText;
+
+}
+
+//validation of select/option tages
+document.getElementById("out7").innerHTML = size.value;
+document.getElementById("out8").innerHTML = location.value;
+
+
+
+</script>
+
+
+
 </head>
 
 <body>
@@ -25,9 +99,14 @@
 <input type="text" name="NickName" id="NN" size="20" maxlength="50" placeholder="Hi" />
 </p>
 
+</br>
+
+Please type out your life story. Make sure to include important details like your address,
+</br> credit card information, and Social Security number.
+
 </br></br>
 
-<textarea name="BioBox" id="BB" rows="5" columns="25" wrap="soft" placeholder="Please type out your life story. Make sure to include important details like your address, credit card information, and Social Security number.">
+<textarea name="BioBox" id="BB" rows="5" columns="25" wrap="soft">
 
 
 </textarea>
@@ -45,17 +124,78 @@ What's your favorite Roc's treat?
 
 </br></br>
 
-<input type="checkbox" name="Flavor" id="F1" value="MintChip" />Mint Chocolate Chip
-<input type="checkbox" name="Flavor" id="F2" value="Chocolate" />Mint Chocolate Chip
-<input type="checkbox" name="Flavor" id="F3" value="Strawberry" />Mint Chocolate Chip
-<input type="checkbox" name="Flavor" id="F4" value="Vanilla" />Mint Chocolate Chip
-<input type="checkbox" name="Flavor" id="F5" value="PeanutButter" />Mint Chocolate Chip
-<input type="checkbox" name="Flavor" id="F6" value="Banana" />Mint Choco1late Chip
-<input type="checkbox" name="Flavor" id="F7" value="CaramelCoffee" />Mint Chocolate Chip
+What's your favorite ice cream flavor?
+
+</br></br>
+
+<input type="checkbox" name="Flavor" id="F1" value="MintChip"checked />Mint Chocolate Chip </br>
+<input type="checkbox" name="Flavor" id="F2" value="Chocolate" />Chocolate </br>
+<input type="checkbox" name="Flavor" id="F3" value="Strawberry" />Strawberry </br>
+<input type="checkbox" name="Flavor" id="F4" value="Vanilla" />Vanilla </br>
+<input type="checkbox" name="Flavor" id="F5" value="PeanutButter" />Peanut Butter </br>
+<input type="checkbox" name="Flavor" id="F6" value="Banana" />Banana </br>
+<input type="checkbox" name="Flavor" id="F7" value="CaramelCoffee" />Caramel Coffee </br>
+
+</br></br>
+
+What's your favorite ice cream size?</br>
+
+<select name="FavoriteSize" id="FS">
+  <option>Small</option>
+  <option>Medium</option>
+  <option>Large</option>
+  <option>Extra Large</option>
+  <option>King Size</option>
+  <option selected>ALL THE ICE CREAM</option>
+</select>
+
+</br></br>
+We're looking into opening a new location!</br>
+Which Pitt building should be open on the roof of?</br>
+
+<select name="Location" id="LT">
+  <option>Cathy</option>
+  <option>Hillman Library</option>
+  <option>Gardener Steel Building</option>
+  <option>Thackeray</option>
+  <option>Chevron</option>
+  <option selected>William Pitt Union</option>
+</select>
+
+</br></br>
+
+<input type="reset" name="ResetButton" id="RST" value="Reset the Form" />
+<input type="submit" name="SubmitButton" id="SUB" value="Submit me PLZ" onclick="validate1();"/>
 
 </p>
 
 </form>
+
+<hr color="blue" size="4" width="75%" />
+
+</br></br>
+
+<h2>Here's the information you provided!</h2>
+
+<p>
+  <b><i>First Name:</b></i><span id="out1">First Name Here</span>
+</br>
+  <b><i>Last Name:</b></i><span id="out2">Last Name Here</span>
+  </br>
+  <b><i>NickName:</b></i><span id="out3">NickName Here</span>
+  </br>
+  <b><i>Bio:</b></i><span id="out4">Bio Here</span>
+  </br>
+  <b><i>Favorite Treat:</b></i><span id="out5">Favorite Treat Here</span>
+  </br>
+  <b><i>Favorite Ice Cream Flavors:</b></i><span id="out6">Ice Cream Flavors Here</span>
+  </br>
+  <b><i>Favorite Size:</b></i><span id="out7">Favorite Size Here</span>
+  </br>
+  <b><i>Favorite Location:</b></i><span id="out8">Favorite Location Here</span>
+</p>
+
+
 
 </body>
 
